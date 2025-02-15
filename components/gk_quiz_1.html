@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Hunt Quiz</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #2d5c23;
+            padding: 20px;
+            color: white;
+            background-image: url('https://www.publicdomainpictures.net/pictures/320000/velka/jungle-background-1576847309es8.jpg');
+            background-size: cover;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px black;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ffeb3b;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .option {
+            width: 80%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #ff9800, #ff5722);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .option:hover {
+            background: linear-gradient(45deg, #ff5722, #e91e63);
+            transform: scale(1.05);
+        }
+        .clue {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #00e676;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌴🗺️ Jungle Treasure Hunt Quiz 🏆🌴</h2>
+        <p class="question" id="question">Loading...</p>
+        <div class="options" id="options"></div>
+        <p class="clue" id="clue"></p>
+        <a href="../components/gk.html" class="back-button">⬅ Back to Main Page</a>
+    </div>
+
+    <script>
+        const questions = [
+            { q: "Who discovered America?", a: "Christopher Columbus", options: ["Vasco da Gama", "Christopher Columbus", "Ferdinand Magellan", "Amerigo Vespucci"], clue: "He set sail in 1492!" },
+            { q: "Who wrote 'Pride and Prejudice'?", a: "Jane Austen", options: ["Emily Brontë", "Jane Austen", "Charlotte Brontë", "Virginia Woolf"], clue: "A classic romance novel." },
+            { q: "Who is the author of 'Moby-Dick'?", a: "Herman Melville", options: ["Mark Twain", "Herman Melville", "Nathaniel Hawthorne", "Jules Verne"], clue: "A story about a giant whale." },
+            { q: "Who discovered penicillin?", a: "Alexander Fleming", options: ["Louis Pasteur", "Alexander Fleming", "Marie Curie", "Joseph Lister"], clue: "A lifesaving antibiotic!" },
+            { q: "In which year did the Titanic sink?", a: "1912", options: ["1898", "1912", "1923", "1905"], clue: "A tragic maritime disaster." }
+        ];
+        
+        let currentQuestion = 0;
+        
+        function loadQuestion() {
+            document.getElementById("question").innerText = questions[currentQuestion].q;
+            document.getElementById("clue").innerText = "";
+            document.getElementById("options").innerHTML = "";
+            
+            questions[currentQuestion].options.forEach(option => {
+                let button = document.createElement("button");
+                button.innerText = option;
+                button.className = "option";
+                button.onclick = () => checkAnswer(option);
+                document.getElementById("options").appendChild(button);
+            });
+        }
+        
+        function checkAnswer(selectedOption) {
+            if (selectedOption === questions[currentQuestion].a) {
+                document.getElementById("clue").innerText = "✅ " + questions[currentQuestion].clue;
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    setTimeout(loadQuestion, 2000);
+                } else {
+                    setTimeout(() => {
+                        document.getElementById("question").innerText = "🎁 The hidden treasure is in PARIS, FRANCE – the 2024 Olympics host country!";
+                        document.getElementById("clue").innerText = "🏆 Congratulations, you found the treasure!";
+                        document.getElementById("options").innerHTML = "";
+                    }, 2000);
+                }
+            } else {
+                alert("❌ Wrong answer! Try again.");
+            }
+        }
+        
+        loadQuestion();
+    </script>
+</body>
+</html>

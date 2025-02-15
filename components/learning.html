@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design with Background Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="relative">
+    <!-- Background Video -->
+    <video autoplay loop muted class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+        <source src="../video/bg_vidieo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Centered Transparent Navigation Bar -->
+    <nav>
+        <div class="flex space-x-12 text-blue-900 font-bold text-lg">
+            <a href="../components/main_page.html" class="flex items-center space-x-2"><span>🏠</span> <span>HOME</span></a>
+            <a href="#" class="flex items-center space-x-2"><span>📊</span> <span>CERTIFICATE</span></a>
+            <a href="#" class="flex items-center space-x-2"><span>🏅</span> <span>PROGRESS TRACKER</span></a>
+            <a href="#" class="flex items-center space-x-2"><span>👤</span> <span>PROFILE</span></a>
+        </div>
+    </nav>
+
+    <!-- Elephant Section in One Series -->
+    <div class="relative h-screen flex items-center justify-center">
+        <div class="w-full flex justify-center space-x-8">
+            
+            <!-- Elephant 1 -->
+            <div class="flex flex-col items-center relative">
+                <a href="#"><img src="../image/tiger.png" alt="Story" class="w-32 relative"></a>
+                <p class="absolute top-[65%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">
+                    <a href="../components/learning/class1.html">1st</a>
+                </p>
+            </div>
+
+            <!-- Elephant 2 -->
+            <div class="flex flex-col items-center relative">
+                <a href="#"><img src="../image/tiger.png" alt="English" class="w-32 relative"></a>
+                <p class="absolute top-[65%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">
+                    <a href="./learning/class2.html">2nd</a>
+                </p>
+            </div>
+
+            <!-- Elephant 3 -->
+            <div class="flex flex-col items-center relative">
+                <a href="#"><img src="../image/tiger.png" alt="GK" class="w-32 relative"></a>
+                <p class="absolute top-[65%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">
+                    <a href="./learning/class3.html">3rd</a>
+                </p>
+            </div>
+
+            <!-- Elephant 4 -->
+            <div class="flex flex-col items-center relative">
+                <a href="#"><img src="../image/tiger.png" alt="Maths" class="w-32 relative"></a>
+                <p class="absolute top-[65%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">
+                    <a href="./learning/class4.html">4th</a>
+                </p>
+            </div>
+
+            <!-- Elephant 5 -->
+            <div class="flex flex-col items-center relative">
+                <a href="#"><img src="../image/tiger.png" alt="Science & Tech" class="w-32 relative"></a>
+                <p class="absolute top-[65%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">
+                    <a href="./learning/class5.html">5th</a>
+                </p>
+            </div>
+
+            <!-- Elephant 6 -->
+            <div class="flex flex-col items-center relative">
+                <a href="#"><img src="../image/tiger.png" alt="History" class="w-32 relative"></a>
+                <p class="absolute top-[65%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">
+                    <a href="./learning/class6.html">6th</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design with Background Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="relative">
+    <!-- Background Video -->
+    <video autoplay loop muted class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+        <source src="../video/bg_vidieo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Centered Transparent Navigation Bar -->
+    
+
+    <!-- Elephant Section in V Shape -->
+    <div class="relative h-screen flex items-center justify-center">
+        <div class="relative w-full h-[60vh] flex justify-center">
+            
+            <!-- Top Left Elephant -->
+            <div class="absolute top-0 left-20 left-1/4 transform -translate-x-1/2 flex flex-col items-center">
+                <a href="../components/gk_quiz_1.html">
+                    <img src="../image/elephant.png" alt="Story" class="w-32 relative">
+                    <p class="absolute top-[65%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">QUIZ-1</p>
+                </a>
+            </div>
+
+            <!-- Top Right Elephant -->
+            <div class="absolute top-0 right-20 right-1/4 transform translate-x-1/2 flex flex-col items-center">
+                <a href="./english.html">
+                    <img src="../image/elephant.png" alt="English" class="w-32 relative">
+                    <p class="absolute top-[65%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">QUIZ-5</p>
+                </a>
+            </div>
+
+            <!-- Middle Left Elephant -->
+            <div class="absolute top-1/3 left-1/3 transform -translate-x-1/2 flex flex-col items-center">
+                <a href="#">
+                    <img src="../image/elephant.png" alt="GK" class="w-32 relative">
+                    <p class="absolute top-[65%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">QUIZ-2</p>
+                </a>
+            </div>
+
+            <!-- Middle Right Elephant -->
+            <div class="absolute top-1/3 right-1/3 transform translate-x-1/2 flex flex-col items-center">
+                <a href="./maths.html">
+                    <img src="../image/elephant.png" alt="Maths" class="w-32 relative">
+                    <p class="absolute top-[65%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">QUIZ-4</p>
+                </a>
+            </div>
+
+            <!-- Bottom Center Elephant -->
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                <a href="#">
+                    <img src="../image/elephant.png" alt="Science & Tech" class="w-32 relative">
+                    <p class="absolute top-[65%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">QUIZ-3</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

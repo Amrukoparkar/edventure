@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <style>
+        body {
+            background: #222;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .result-container {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trophy {
+            width: 150px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px;
+            background: #ffcc00;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Quiz Completed!</h1>
+        <p id="score-text"></p>
+        <img id="trophy" class="trophy" src="../image/trophy.png" alt="Trophy">
+        <br>
+        <button class="btn" onclick="window.location.href='story_6.html'">story</button>
+    </div>
+
+    <script>
+        function getScore() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('score');
+        }
+
+        function showResult() {
+            const score = getScore();
+            document.getElementById("score-text").innerText = `You scored ${score} out of 5!`;
+
+            // Show trophy if score is 3 or more
+            if (score >= 3) {
+                document.getElementById("trophy").style.display = "block";
+            }
+        }
+
+        showResult();
+    </script>
+</body>
+</html>

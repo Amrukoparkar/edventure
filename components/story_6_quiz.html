@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Day in School Quiz</title>
+    <style>
+        body {
+            background-image: url('../image/bg.png');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: rgb(23, 7, 57);
+            text-align: center;
+        }
+
+        .quiz-container {
+            background: lavender;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .question {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .options label {
+            background: #ffcc00;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .options label:hover {
+            background: #ff9900;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>First Day in School Quiz</h1>
+        <div id="quiz"></div>
+        <button class="btn" onclick="submitQuiz()">Submit</button>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "Why is the child excited about school?", options: ["A) To meet friends", "B) To go on a trip", "C) To play video games", "D) To watch TV"], answer: "A" },
+            { question: "What activities does the child want to do in school?", options: ["A) Sleep and rest", "B) Draw and write", "C) Watch movies", "D) Go shopping"], answer: "B" },
+            { question: "What does the child love to do?", options: ["A) Dance and sing", "B) Run and jump", "C) Read books", "D) Play sports"], answer: "A" },
+            { question: "What does the child hope for in a teacher?", options: ["A) Kindness", "B) Strictness", "C) Fun-loving", "D) Angry"], answer: "A" },
+            { question: "How does the child feel about the first day?", options: ["A) Nervous", "B) Excited", "C) Scared", "D) Bored"], answer: "B" }
+        ];
+
+        function loadQuiz() {
+            let quizContainer = document.getElementById("quiz");
+            quizContainer.innerHTML = "";
+            questions.forEach((q, index) => {
+                let questionHTML = `<div class='question'>${index + 1}. ${q.question}</div>`;
+                questionHTML += `<div class='options'>`;
+                q.options.forEach(option => {
+                    let value = option.charAt(0);
+                    questionHTML += `<label><input type='radio' name='q${index}' value='${value}'> ${option}</label>`;
+                });
+                questionHTML += `</div>`;
+                quizContainer.innerHTML += questionHTML;
+            });
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            questions.forEach((q, index) => {
+                let selectedOption = document.querySelector(`input[name='q${index}']:checked`);
+                if (selectedOption && selectedOption.value === q.answer) {
+                    score++;
+                }
+            });
+
+            window.location.href = `story_6_quiz_result.html?score=${score}`;
+        }
+
+        loadQuiz();
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jungle Quiz</title>
+    <style>
+        body {
+            background: url('../image/bg.png') no-repeat center center/cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(34, 139, 34, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        .option {
+            background: #8FBC8F;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .option:hover {
+            background: #2E8B57;
+            transform: scale(1.1);
+        }
+        .correct {
+            background: #4CAF50 !important;
+        }
+        .wrong {
+            background: #FF5733 !important;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .score {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .back-button {
+            background: #FFDD57;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .back-button:hover {
+            background: #FFA500;
+            transform: scale(1.1);
+        }
+    </style>
+    <script>
+        let questions = [
+            { q: "Which of the following is an example of a renewable energy source?", options: ["Natural gas", "Coal", "Wind", "Nuclear power"], correct: 2 },
+            { q: "What is the basic unit of information in a computer?", options: ["Byte", "Kilobyte", "Gigabyte", "Terabyte"], correct: 0 },
+            { q: "Which of the following is NOT a type of computer memory?", options: ["RAM", "ROM", "CPU", "Cache"], correct: 2 },
+            { q: "What is the primary function of a router in a computer network?", options: ["Virus scanning", "Data storage", "Data encryption", "Packet forwarding"], correct: 3 },
+            { q: "Which of the following programming languages is used for statistical analysis and data visualization?", options: ["Java", "Python", "C++", "R"], correct: 3 },
+            { q: "What is the term for a malicious software that spreads from one computer to another without user intervention?", options: ["Virus", "Trojan horse", "Worm", "Spyware"], correct: 2 },
+            { q: "What is the process of converting computer code into machine-readable instructions called?", options: ["Compilation", "Interpretation", "Execution", "Debugging"], correct: 0 },
+            { q: "Which of the following is an example of an input device?", options: ["Printer", "Monitor", "Keyboard", "Speaker"], correct: 2 },
+            { q: "What does SSL stand for in the context of internet security?", options: ["Secure Socket Layer", "Secure Software License", "System Security Lock", "Secure System Language"], correct: 0 }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        
+        function loadQuestion() {
+            if (currentQuestion >= questions.length) {
+                document.querySelector('.quiz-container').innerHTML = `<h2>Quiz Completed!</h2><p class='score'>Your Score: ${score} / ${questions.length}</p><a href='games.html' class='back-button'>Back</a>`;
+                return;
+            }
+            let qData = questions[currentQuestion];
+            let quizHTML = `<div class='question'>${currentQuestion + 1}. ${qData.q}</div><div class='options'>`;
+            qData.options.forEach((opt, index) => {
+                quizHTML += `<div class='option' onclick='checkAnswer(${index})'>${opt}</div>`;
+            });
+            quizHTML += "</div>";
+            document.querySelector('.quiz-container').innerHTML = quizHTML;
+        }
+
+        function checkAnswer(selectedIndex) {
+            let options = document.querySelectorAll('.option');
+            if (selectedIndex === questions[currentQuestion].correct) {
+                options[selectedIndex].classList.add('correct');
+                score++;
+            } else {
+                options[selectedIndex].classList.add('wrong');
+                options[questions[currentQuestion].correct].classList.add('correct');
+            }
+            setTimeout(() => {
+                currentQuestion++;
+                loadQuestion();
+            }, 1000);
+        }
+
+        window.onload = loadQuestion;
+    </script>
+</head>
+<body>
+    <div class="quiz-container"></div>
+</body>
+</html>

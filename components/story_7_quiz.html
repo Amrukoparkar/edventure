@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>At the Park Quiz</title>
+    <style>
+        body {
+            background-image: url('../image/bg.png');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: rgb(23, 7, 57);
+            text-align: center;
+        }
+
+        .quiz-container {
+            background: lavender;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .question {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .options label {
+            background: #ffcc00;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .options label:hover {
+            background: #ff9900;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>At the Park Quiz</h1>
+        <div id="quiz"></div>
+        <button class="btn" onclick="submitQuiz()">Submit</button>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "What day of the week is it in the story?", options: ["A) Monday", "B) Saturday", "C) Sunday", "D) Friday"], answer: "B" },
+            { question: "Who brings the children to the park?", options: ["A) Friends", "B) Grandparents", "C) Parents", "D) Teacher"], answer: "C" },
+            { question: "Which activities do the children do at the park?", options: ["A) Play at the swing and slides", "B) Read books", "C) Fly kites", "D) Ride bicycles"], answer: "A" },
+            { question: "What do they buy at the park?", options: ["A) Fruits", "B) Ice cream and candy", "C) Balloons", "D) Toys"], answer: "B" },
+            { question: "How do the children feel at the park?", options: ["A) Tired", "B) Angry", "C) Sad", "D) Happy"], answer: "D" }
+        ];
+
+        function loadQuiz() {
+            let quizContainer = document.getElementById("quiz");
+            quizContainer.innerHTML = "";
+            questions.forEach((q, index) => {
+                let questionHTML = `<div class='question'>${index + 1}. ${q.question}</div>`;
+                questionHTML += `<div class='options'>`;
+                q.options.forEach(option => {
+                    let value = option.charAt(0);
+                    questionHTML += `<label><input type='radio' name='q${index}' value='${value}'> ${option}</label>`;
+                });
+                questionHTML += `</div>`;
+                quizContainer.innerHTML += questionHTML;
+            });
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            questions.forEach((q, index) => {
+                let selectedOption = document.querySelector(`input[name='q${index}']:checked`);
+                if (selectedOption && selectedOption.value === q.answer) {
+                    score++;
+                }
+            });
+
+            window.location.href = `story_7_quiz_result.html?score=${score}`;
+        }
+
+        loadQuiz();
+    </script>
+</body>
+</html>

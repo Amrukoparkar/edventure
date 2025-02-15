@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Hunt Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #2d5c23;
+            padding: 20px;
+            color: white;
+            background-image: url('https://www.publicdomainpictures.net/pictures/320000/velka/jungle-background-1576847309es8.jpg');
+            background-size: cover;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px black;
+            color: black;
+        }
+        .question {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        .option {
+            padding: 10px;
+            margin: 5px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .option:hover {
+            background: #388e3c;
+        }
+        .clue {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-btn:hover {
+            background: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌿 Jungle Treasure Hunt Quiz 🏆</h2>
+        <p class="question" id="question">Loading...</p>
+        <div class="options" id="options"></div>
+        <p class="clue" id="clue"></p>
+        <a href="../components/gk.html" class="back-button">⬅ Back to Main Page</a>
+    </div>
+
+    <script>
+        const questions = [
+            { q: "In which year did India gain independence?", a: "1947", options: ["1945", "1947", "1950", "1962"], clue: "A historic moment for a billion people!" },
+            { q: "Who was the first President of the United States?", a: "George Washington", options: ["Abraham Lincoln", "Thomas Jefferson", "George Washington", "John Adams"], clue: "The face on the one-dollar bill!" },
+            { q: "In which year did World War II end?", a: "1945", options: ["1939", "1942", "1945", "1950"], clue: "The world saw peace after this year." },
+            { q: "Who was the first person to walk on the moon?", a: "Neil Armstrong", options: ["Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "Michael Collins"], clue: "One small step for man..." },
+            { q: "Who was the first female Prime Minister of India?", a: "Indira Gandhi", options: ["Indira Gandhi", "Sonia Gandhi", "Margaret Thatcher", "Benazir Bhutto"], clue: "A powerful woman in Indian politics!" }
+        ];
+        
+        let currentQuestion = 0;
+        
+        function loadQuestion() {
+            document.getElementById("question").innerText = questions[currentQuestion].q;
+            document.getElementById("clue").innerText = "";
+            let optionsDiv = document.getElementById("options");
+            optionsDiv.innerHTML = "";
+            questions[currentQuestion].options.forEach(option => {
+                let button = document.createElement("button");
+                button.innerText = option;
+                button.classList.add("option");
+                button.onclick = () => checkAnswer(option);
+                optionsDiv.appendChild(button);
+            });
+        }
+        
+        function checkAnswer(selectedOption) {
+            if (selectedOption === questions[currentQuestion].a) {
+                document.getElementById("clue").innerText = "✅ " + questions[currentQuestion].clue;
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    setTimeout(loadQuestion, 2000);
+                } else {
+                    setTimeout(() => {
+                        document.getElementById("question").innerText = "🏆 Congratulations, you completed the quiz!";
+                        document.getElementById("clue").innerText = "🎉 You are a history and general knowledge champion!";
+                        document.getElementById("options").innerHTML = "";
+                    }, 2000);
+                }
+            } else {
+                alert("❌ Wrong answer! Try again.");
+            }
+        }
+        
+        function goBack() {
+            window.history.back();
+        }
+        
+        loadQuestion();
+    </script>
+</body>
+</html>

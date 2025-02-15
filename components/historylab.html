@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Timeline Adventure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f3e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #6b3e26;
+            text-align: center;
+            font-size: 3em;
+        }
+        #timelineContainer {
+            width: 80%;
+            max-width: 1200px;
+            height: 300px;
+            background-color: #a67c52;
+            border: 3px solid #5c3d2e;
+            border-radius: 15px;
+            overflow-x: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        #timeline {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            white-space: nowrap;
+        }
+        .event {
+            width: 250px;
+            background-color: #d9a066;
+            border: 2px solid #8b5e3b;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .event:hover {
+            transform: scale(1.1);
+        }
+        .event h3 {
+            font-size: 1.6em;
+            color: #2f1b0a;
+        }
+        .event p {
+            font-size: 1.2em;
+            color: #5c3d2e;
+        }
+        #infoBox {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #d9c2a3;
+            border: 2px solid #8b5e3b;
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .game-button {
+            background-color: #6b3e26;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .game-button:hover {
+            background-color: #5c3d2e;
+        }
+        #backButton {
+            display: none;
+            background-color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+    <h1>History Timeline Adventure</h1>
+    <div id="timelineContainer">
+        <div id="timeline"></div>
+    </div>
+    <button class="game-button" onclick="startQuiz()">Take a History Quiz</button>
+    <div id="infoBox">
+        <p>Click on an event to learn more and earn points!</p>
+    </div>
+    <button id="backButton" class="game-button" onclick="goBack()">Back</button>
+    <script>
+        const events = [
+            { year: "3300 BCE", title: "Indus Valley Civilization", description: "One of the world's oldest urban civilizations", reward: 10 },
+            { year: "600 BCE", title: "Rise of Mahajanapadas", description: "Sixteen great states in ancient India", reward: 15 },
+            { year: "321 BCE", title: "Mauryan Empire", description: "India's first major empire, founded by Chandragupta Maurya", reward: 20 },
+            { year: "320 CE", title: "Gupta Empire", description: "Known as the Golden Age of India", reward: 25 },
+            { year: "712 CE", title: "Arab Invasion of Sindh", description: "Muhammad bin Qasim conquers Sindh", reward: 10 },
+        ];
+
+        const timeline = document.getElementById('timeline');
+        const infoBox = document.getElementById('infoBox');
+        const backButton = document.getElementById('backButton');
+        let score = 0;
+        let attendedEvents = new Set();
+
+        events.forEach(event => {
+            const eventElement = document.createElement('div');
+            eventElement.className = 'event';
+            eventElement.innerHTML = `<h3>${event.year}</h3><p>${event.title}</p>`;
+            eventElement.addEventListener('click', () => {
+                showEventInfo(event);
+                attendedEvents.add(event.title);
+                checkAllEventsAttended();
+            });
+            timeline.appendChild(eventElement);
+        });
+
+        function showEventInfo(event) {
+            score += event.reward;
+            infoBox.innerHTML = `<h3>${event.title} (${event.year})</h3><p>${event.description}</p><p class='reward'>+${event.reward} Points! Total Score: ${score}</p>`;
+        }
+
+        function checkAllEventsAttended() {
+            if (attendedEvents.size === events.length) {
+                backButton.style.display = 'block';
+            }
+        }
+
+        function startQuiz() {
+            alert("Quiz Feature Coming Soon!");
+        }
+
+        function goBack() {
+            alert("Returning to previous page");
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

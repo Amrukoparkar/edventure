@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Science Lab - Jungle Theme</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f5f5dc; color: #4a3b2c; text-align: center; padding: 20px;">
+    <h1 style="color: #2e4a1b;">Virtual Science Lab - Jungle Theme</h1>
+    
+    <div class="experiment" style="border: 3px solid #8b5a2b; background-color: #e0c29a; border-radius: 10px; padding: 20px; margin-top: 20px;">
+        <h2 style="color: #2e4a1b;">Experiment: Plant Growth</h2>
+        <p>Watch how different factors affect plant growth!</p>
+        <button onclick="growPlant('water')" style="background-color: #4a772f; color: white; border: none; padding: 15px; border-radius: 5px;">Water the Plant</button>
+        <button onclick="growPlant('sunlight')" style="background-color: #dab04d; color: white; border: none; padding: 15px; border-radius: 5px;">Give Sunlight</button>
+        <button onclick="growPlant('fertilizer')" style="background-color: #8b5a2b; color: white; border: none; padding: 15px; border-radius: 5px;">Add Fertilizer</button>
+        <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+    </div>
+
+    <div class="experiment" style="border: 3px solid #8b5a2b; background-color: #e0c29a; border-radius: 10px; padding: 20px; margin-top: 20px;">
+        <h2 style="color: #2e4a1b;">Experiment: Simple Circuit</h2>
+        <p>Create a simple circuit to light up a bulb!</p>
+        <button onclick="toggleCircuit()" style="background-color: #4a772f; color: white; border: none; padding: 15px; border-radius: 5px;">Toggle Switch</button>
+        <div id="circuitResult" style="margin-top: 20px; font-weight: bold;"></div>
+    </div>
+
+    <div class="experiment" style="border: 3px solid #8b5a2b; background-color: #e0c29a; border-radius: 10px; padding: 20px; margin-top: 20px;">
+        <h2 style="color: #2e4a1b;">Experiment: States of Matter</h2>
+        <p>Change the state of water by heating or cooling it!</p>
+        <button onclick="changeState('heat')" style="background-color: #dab04d; color: white; border: none; padding: 15px; border-radius: 5px;">Heat Water</button>
+        <button onclick="changeState('cool')" style="background-color: #4a772f; color: white; border: none; padding: 15px; border-radius: 5px;">Cool Water</button>
+        <div id="stateResult" style="margin-top: 20px; font-weight: bold;"></div>
+    </div>
+
+    <!-- Back Button -->
+    <button onclick="goBack()" style="margin-top: 30px; background-color: #2e4a1b; color: white; border: none; padding: 15px; border-radius: 5px; font-size: 16px;">⬅ Back to Home</button>
+
+    <script>
+        let plantHeight = 0;
+        let circuitOn = false;
+        let waterState = "Liquid";
+
+        function growPlant(action) {
+            switch(action) {
+                case 'water':
+                    plantHeight += 2;
+                    break;
+                case 'sunlight':
+                    plantHeight += 3;
+                    break;
+                case 'fertilizer':
+                    plantHeight += 5;
+                    break;
+            }
+            document.getElementById('result').innerHTML = `Plant height: ${plantHeight} cm`;
+        }
+
+        function toggleCircuit() {
+            circuitOn = !circuitOn;
+            document.getElementById('circuitResult').innerHTML = circuitOn ? "The bulb is ON! 💡" : "The bulb is OFF.";
+        }
+
+        function changeState(action) {
+            if (action === 'heat') {
+                if (waterState === "Liquid") {
+                    waterState = "Gas";
+                } else if (waterState === "Solid") {
+                    waterState = "Liquid";
+                }
+            } else if (action === 'cool') {
+                if (waterState === "Liquid") {
+                    waterState = "Solid";
+                } else if (waterState === "Gas") {
+                    waterState = "Liquid";
+                }
+            }
+            document.getElementById('stateResult').innerHTML = `Water is now in ${waterState} state.`;
+        }
+
+        function goBack() {
+            window.location.href = "main_page.html"; // Change this to your home page URL if needed
+        }
+    </script>
+</body>
+</html>

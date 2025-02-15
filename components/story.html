@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Clone Page</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .wooden-sign {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wooden-sign a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <p style=" margin-right: 85%;" onclick="back()"> < back </p>
+    <img src="../image/bg.png" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+    
+    <!-- Wooden Signs with Text -->
+    <div style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, 0);">
+        <div class="wooden-sign" style="top: 0; left: -200px;">
+            <a href="../components/story_1.html">
+                <img src="../image/wood_plate.png" style="width: 100px; position: absolute;">
+                <span style="position: relative;">STORY 1</span>
+            </a>
+        </div>
+        <div class="wooden-sign" style="top: 50px; left: -150px;">
+            <a href="../components/story_2.html">
+                <img src="../image/wood_plate.png" style="width: 100px; position: absolute;">
+                <span style="position: relative;">STORY 2</span>
+            </a>
+        </div>
+        <div class="wooden-sign" style="top: 100px; left: -100px;">
+            <a href="../components/story_3.html">
+                <img src="../image/wood_plate.png" style="width: 100px; position: absolute;">
+                <span style="position: relative;">STORY 3</span>
+            </a>
+        </div>
+        <div class="wooden-sign" style="top: 150px; left: -50px;">
+            <a href="../components/story_4.html">
+                <img src="../image/wood_plate.png" style="width: 100px; position: absolute;">
+                <span style="position: relative;">STORY 4</span>
+            </a>
+        </div>
+        <div class="wooden-sign" style="top: 100px; left: 50px;">
+            <a href="../components/story_5.html">
+                <img src="../image/wood_plate.png" style="width: 100px; position: absolute;">
+                <span style="position: relative;">STORY 5</span>
+            </a>
+        </div>
+        <div class="wooden-sign" style="top: 50px; left: 100px;">
+            <a href="../components/story_6.html">
+                <img src="../image/wood_plate.png" style="width: 100px; position: absolute;">
+                <span style="position: relative;">STORY 6</span>
+            </a>
+        </div>
+        <div class="wooden-sign" style="top: 0; left: 150px;">
+            <a href="../components/story_7.html">
+                <img src="../image/wood_plate.png" style="width: 100px; position: absolute;">
+                <span style="position: relative;">STORY 7</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- JavaScript for Interaction -->
+    <script>
+        console.log("Page loaded successfully!");
+        function back() {
+           window.location.href ="main_page.html";
+        }
+    </script>
+</body>
+</html>

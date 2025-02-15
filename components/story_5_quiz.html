@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Hobby Quiz</title>
+    <style>
+        body {
+            background-image: url('../image/bg.png');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: rgb(23, 7, 57);
+            text-align: center;
+        }
+
+        .quiz-container {
+            background: lavender;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .question {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .options label {
+            background: #ffcc00;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .options label:hover {
+            background: #ff9900;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>My Favorite Hobby Quiz</h1>
+        <div id="quiz"></div>
+        <button class="btn" onclick="submitQuiz()">Submit</button>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "What is the favorite hobby mentioned in the passage?", options: ["A) Playing games", "B) Reading", "C) Dancing", "D) Singing"], answer: "B" },
+            { question: "Where does the person usually go for reading?", options: ["A) Home", "B) School", "C) Public Library", "D) Park"], answer: "C" },
+            { question: "What skills does reading help to develop?", options: ["A) Math skills", "B) Language skills and vocabulary", "C) Singing ability", "D) Drawing skills"], answer: "B" },
+            { question: "Who accompanies the person to the library?", options: ["A) Jemmy", "B) Sam", "C) Alex", "D) No one"], answer: "A" },
+            { question: "What does Jemmy like to read about?", options: ["A) Nature and animals", "B) Science fiction", "C) Sports", "D) Cooking"], answer: "C" }
+        ];
+
+        function loadQuiz() {
+            let quizContainer = document.getElementById("quiz");
+            quizContainer.innerHTML = "";
+            questions.forEach((q, index) => {
+                let questionHTML = `<div class='question'>${index + 1}. ${q.question}</div>`;
+                questionHTML += `<div class='options'>`;
+                q.options.forEach(option => {
+                    let value = option.charAt(0);
+                    questionHTML += `<label><input type='radio' name='q${index}' value='${value}'> ${option}</label>`;
+                });
+                questionHTML += `</div>`;
+                quizContainer.innerHTML += questionHTML;
+            });
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            questions.forEach((q, index) => {
+                let selectedOption = document.querySelector(`input[name='q${index}']:checked`);
+                if (selectedOption && selectedOption.value === q.answer) {
+                    score++;
+                }
+            });
+
+            window.location.href = `story_5_quiz_result.html?score=${score}`;
+        }
+
+        loadQuiz();
+    </script>
+</body>
+</html>

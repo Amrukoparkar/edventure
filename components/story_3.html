@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lion and Mouse Story</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('../image/bg.png'); /* Replace with your BG image */
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .story-container {
+            
+            display: flex;
+            justify-content: center;
+        }
+        .story-image {
+            max-width: 50%; /* Reduced size */
+            height: auto;
+        }
+        .quiz-button {
+            background-color: #3b2f1d;
+            color: white;
+            border: none;
+            margin-top: 10%;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p style=" margin-right: 85%;" onclick="back()"> < back </p>
+    <div class="story-container">
+        <img src="../image/story_3.jpg" alt="Lion and Mouse Story" class="story-image"> <!-- Replace with your image file -->
+    </div>
+    <div class="quiz-container">
+        <button class="quiz-button" onclick="startQuiz()">TAKE QUIZ</button>
+    </div>
+    <script>
+        function startQuiz() {
+           window.location.href ="story_3_quiz.html";
+        }
+        function back() {
+           window.location.href ="story.html";
+        }
+    </script>
+</body>
+</html>

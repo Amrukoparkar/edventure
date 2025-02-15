@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkey Theme UI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('../image/bg.png'); /* Replace with your BG image */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .monkey-card {
+            position: relative;
+            display: inline-block;
+            background-image: url('../image/monkey.png'); /* Replace with monkey frame image */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 250px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #b44;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .monkey-card:hover {
+            transform: scale(1.1);
+        }
+        .container {
+            display: flex;
+            gap: 50px;
+        }
+        .monkey-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 60%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="monkey-card" onclick="window.location.href='../components/games.html'">
+            <span class="monkey-text">GAMES</span>
+        </div>
+        <div class="monkey-card" onclick="window.location.href='../components/learning.html'">
+            <span class="monkey-text">LEARNING</span>
+        </div>
+        <div class="monkey-card" onclick="window.location.href='../components/labs.html'">
+            <span class="monkey-text">LABS</span>
+        </div>
+    </div>
+</body>
+</html>
