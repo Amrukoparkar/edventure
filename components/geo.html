@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Quiz</title>
+    <title>Geography Quiz</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Background Image */
         body {
             font-family: 'Poppins', sans-serif;
-            background: url('../image/bg.png') no-repeat center center/cover;
+            background: url('geography-bg.jpg') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -84,7 +84,7 @@
 <body>
 
     <div class="quiz-container">
-        <h2>History Quiz</h2>
+        <h2>Geography Quiz</h2>
         <p class="question">Loading...</p>
         <div class="options"></div>
         <p class="score"></p>
@@ -95,29 +95,29 @@
     <script>
         const quizData = [
             {
-                question: "Who was the first Prime Minister of India?",
-                options: ["Mahatma Gandhi", "Jawaharlal Nehru", "Subhash Chandra Bose", "Sardar Patel"],
-                correct: "Jawaharlal Nehru"
+                question: "Which is the largest continent by area?",
+                options: ["Africa", "Asia", "Europe", "North America"],
+                correct: "Asia"
             },
             {
-                question: "Which is the oldest civilization in India?",
-                options: ["Maurya", "Gupta", "Harappan", "Chola"],
-                correct: "Harappan"
+                question: "Which ocean is the deepest?",
+                options: ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
+                correct: "Pacific Ocean"
             },
             {
-                question: "Who is known as the Father of the Nation?",
-                options: ["Dr. B.R. Ambedkar", "Bhagat Singh", "Mahatma Gandhi", "Lal Bahadur Shastri"],
-                correct: "Mahatma Gandhi"
+                question: "Which is the longest river in the world?",
+                options: ["Amazon River", "Yangtze River", "Nile River", "Mississippi River"],
+                correct: "Nile River"
             },
             {
-                question: "When did India get independence?",
-                options: ["1945", "1947", "1950", "1937"],
-                correct: "1947"
+                question: "Which is the largest desert in the world?",
+                options: ["Sahara Desert", "Gobi Desert", "Antarctic Desert", "Kalahari Desert"],
+                correct: "Antarctic Desert"
             },
             {
-                question: "Who wrote the Indian National Anthem?",
-                options: ["Rabindranath Tagore", "Bankim Chandra Chatterjee", "Sarojini Naidu", "Bal Gangadhar Tilak"],
-                correct: "Rabindranath Tagore"
+                question: "What is the capital city of Australia?",
+                options: ["Sydney", "Melbourne", "Canberra", "Perth"],
+                correct: "Canberra"
             }
         ];
 
