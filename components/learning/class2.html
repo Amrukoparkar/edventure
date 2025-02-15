@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design with Background Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="relative">
+    <!-- Background Video -->
+    <video autoplay loop muted class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+        <source src="../../video/bg_vidieo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Tiger Section (3 Tigers) -->
+    <div class="relative h-screen flex items-center justify-center">
+        <div class="w-full flex justify-center space-x-12">
+            
+            <!-- Tiger 1 -->
+            <div class="flex flex-col items-center relative">
+                <a href="https://www.youtube.com/watch?v=SCIENCE_VIDEO_LINK" target="_blank">
+                    <img src="../../image/tiger.png" alt="Story" class="w-40 relative">
+                </a>
+                <p class="absolute top-[65%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">
+                    <a href="https://www.youtube.com/watch?v=5cNnqBWDOcU&t=4s&pp=ygUPY2xhc3MgMiBzY2llbmNl" target="_blank">SCIENCE</a>
+                </p>
+            </div>
+
+            <!-- Tiger 2 -->
+            <div class="flex flex-col items-center relative">
+                <a href="https://www.youtube.com/watch?v=MATHS_VIDEO_LINK" target="_blank">
+                    <img src="../../image/tiger.png" alt="English" class="w-40 relative">
+                </a>
+                <p class="absolute top-[60%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">
+                    <a href="https://www.youtube.com/watch?v=s7Uy5SE1K2c&list=PLiPy3hM238v6Ly4ru_29bY8ObWfrSaaj_" target="_blank">MATHS</a>
+                </p>
+            </div>
+
+            <!-- Tiger 3 -->
+            <div class="flex flex-col items-center relative">
+                <a href="https://www.youtube.com/watch?v=ENGLISH_VIDEO_LINK" target="_blank">
+                    <img src="../../image/tiger.png" alt="GK" class="w-40 relative">
+                </a>
+                <p class="absolute top-[65%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-blue-900">
+                    <a href="https://www.youtube.com/watch?v=4xuNROSW_hc&list=PLW6ZJtqCeoWv_trofxMhrziLuFH0H1Vcg" target="_blank">ENGLISH</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
